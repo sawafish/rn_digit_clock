@@ -10,12 +10,17 @@ import Switch from 'react-native-switch-pro';
 import DeviceInfo from 'react-native-device-info';
 import Orientation from 'react-native-orientation';
 import IdleTimerManager from 'react-native-idle-timer';
+import LinearGradient from 'react-native-linear-gradient';
 import styles from './style';
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time:"",
+      time:{
+        hours:"",
+        minutes:"",
+        seconds:"",
+      },
       date:"",
       battery:"",
       isDayTheme:false,
@@ -27,10 +32,15 @@ class App extends Component {
   renderClock(){
    const doubleTime=e=>e.toString().padStart(2, "0");
     let now = new Date(),
-      hour = doubleTime(now.getHours()),
-      minute = doubleTime(now.getMinutes()),
+      hours = doubleTime(now.getHours()),
+      minutes = doubleTime(now.getMinutes()),
       seconds =doubleTime(now.getSeconds());
-    let time = `${hour}:${minute}:${seconds}`;
+    let time =
+        {
+          hours,
+          minutes,
+          seconds,
+        };
     this.setState({
       time
     })
@@ -86,8 +96,12 @@ class App extends Component {
         }}>
           <StatusBar translucent={true} backgroundColor="rgba(0, 0, 0, 0)" hidden={true}/>
           <View style={{...styles.center,
-          backgroundColor:isDayTheme?"rgb(220, 235, 236)":"#222"
-        }}>
+          backgroundColor:isDayTheme?"rgb(220, 235, 236)":"#000"
+          }}>
+            <LinearGradient colors={isDayTheme?['#000000', 'transparent']:['#eeeeee30', 'transparent']} style={{...styles.shadowHorizontal,...styles.top}}/>
+            <LinearGradient colors={isDayTheme?['transparent', '#000000']:['transparent','#eeeeee30']} style={{...styles.shadowHorizontal,...styles.bottom}}/>
+            <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={isDayTheme?['#000000', 'transparent']:['#eeeeee30', 'transparent']} style={{...styles.shadowVertical,...styles.left}}/>
+            <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={isDayTheme?['transparent', '#000000']:[ 'transparent','#eeeeee30']} style={{...styles.shadowVertical,...styles.right}}/>
               <View style={styles.head}>
                 <View style={styles.info}>
                   {
@@ -109,17 +123,37 @@ class App extends Component {
                   }}>{date}</Text>
                 </View>
                 <Switch 
-                circleColorActive={"#333"}
+                circleColorActive={"#000"}
                 circleColorInactive={"rgb(202, 234, 236)"}
                 backgroundActive={"#eee"}
-                backgroundInactive={"#000"}
+                backgroundInactive={"#333"}
                 onSyncPress={value => this.setState({
                   isDayTheme:value
                 })}/>
               </View>
+              <View style={styles.clock}>
+              <View style={{...styles.clockCell,
+              backgroundColor:isDayTheme?"rgba(204, 204, 204, 0.2)":"rgba(51, 51, 51, 0.25)",
+              }}>
               <Text style={{...styles.text,
-          color:isDayTheme?"#333":"#eee"
-        }}>{time}</Text>
+                color:isDayTheme?"#333":"#eee"
+              }}>{time.hours}</Text>
+              </View>
+              <View style={{...styles.clockCell,
+              backgroundColor:isDayTheme?"rgba(204, 204, 204, 0.2)":"rgba(51, 51, 51, 0.25)",
+              }}>
+              <Text style={{...styles.text,
+                color:isDayTheme?"#333":"#eee"
+              }}>{time.minutes}</Text>
+              </View>
+              <View style={{...styles.clockCell,
+              backgroundColor:isDayTheme?"rgba(204, 204, 204, 0.2)":"rgba(51, 51, 51, 0.25)",
+              }}>
+               <Text style={{...styles.text,
+                color:isDayTheme?"#333":"#eee"
+              }}>{time.seconds}</Text>
+              </View>
+              </View>
           </View>
         </View>
    );

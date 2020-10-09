@@ -5585,6 +5585,11 @@ react-native-idle-timer@^2.1.6:
   resolved "https://registry.npmjs.org/react-native-idle-timer/-/react-native-idle-timer-2.1.6.tgz#6076c9e6127aabdc8eb1e1d846014bfe3dfa7527"
   integrity sha512-rqeU7DCbzaXN+xchw/bFatvV/keHxhY1+X//Jqjs/h6XWvhP9gV+EN6isoDNnFI7pKAN4yZJ6QTqaw5sDiEpPQ==
 
+react-native-linear-gradient@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
+
 react-native-orientation@^3.1.3:
   version "3.1.3"
   resolved "https://registry.npmjs.org/react-native-orientation/-/react-native-orientation-3.1.3.tgz#d45803841fe94b6cce9acbe904fd5ca191a3711e"

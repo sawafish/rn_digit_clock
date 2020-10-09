@@ -1,6 +1,6 @@
 import {
     StyleSheet,
-    Dimensions 
+    Dimensions
 } from 'react-native';
 import {
     setSpText,
@@ -15,20 +15,48 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     center: {
-        width: '96%',
-        height: '96%',
-        borderRadius: scaleSizeW(20),
+        width: '100%',
+        height: '100%',
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden",
         position: "relative",
+    },
+    shadowHorizontal: {
+        width: '100%',
+        height: scaleSizeH(10),
+        opacity: 0.5,
+        position: "absolute",
+        zIndex: 5,
+        left: 0,
+    },
+    top: {
+        top: 0
+    },
+    bottom: {
+        bottom: 0
+    },
+    left: {
+        left: 0
+    },
+    right: {
+        right: 0
+    },
+    shadowVertical: {
+        width: scaleSizeH(10),
+        height: '100%',
+        opacity: 0.5,
+        position: "absolute",
+        zIndex: 5,
+        top: 0
     },
     head: {
         width: '100%',
         position: "absolute",
         top: scaleSizeW(20),
         left: 0,
-        paddingLeft: scaleSizeW(60),
-        paddingRight: scaleSizeW(60),
+        paddingLeft: scaleSizeW(100),
+        paddingRight: scaleSizeW(100),
         flexDirection: "row",
         justifyContent: "space-between",
     },
@@ -40,12 +68,17 @@ const styles = StyleSheet.create({
         width: scaleSizeW(40),
         height: scaleSizeW(40),
     },
+    clock:{
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection:"row"
+    },
     text: {
-        fontFamily: "digit",
-        fontSize: setSpText(400),
+        fontSize: setSpText(360),
+        marginTop:scaleSizeH(30)
     },
     battery: {
-        width:scaleSizeW(56),
+        width: scaleSizeW(50),
         height: scaleSizeH(30),
         alignItems: "center",
         justifyContent: "center",
@@ -53,12 +86,19 @@ const styles = StyleSheet.create({
         marginRight: scaleSizeW(10),
     },
     textSmall: {
-        fontFamily: "digit",
         fontSize: setSpText(20),
     },
     textMin: {
-        fontFamily: "digit",
-        fontSize: setSpText(40),
+        fontSize: setSpText(35),
+    },
+    clockCell:{
+        width:"25%",
+        height:"70%",
+        margin:scaleSizeW(10),
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius:scaleSizeW(10),
+
     }
 });
 module.exports = styles;
