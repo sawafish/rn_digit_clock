@@ -132,27 +132,27 @@ class App extends Component {
                 })}/>
               </View>
               <View style={styles.clock}>
-              <View style={{...styles.clockCell,
-              backgroundColor:isDayTheme?"rgba(204, 204, 204, 0.2)":"rgba(51, 51, 51, 0.25)",
-              }}>
-              <Text style={{...styles.text,
-                color:isDayTheme?"#333":"#eee"
-              }}>{time.hours}</Text>
-              </View>
-              <View style={{...styles.clockCell,
-              backgroundColor:isDayTheme?"rgba(204, 204, 204, 0.2)":"rgba(51, 51, 51, 0.25)",
-              }}>
-              <Text style={{...styles.text,
-                color:isDayTheme?"#333":"#eee"
-              }}>{time.minutes}</Text>
-              </View>
-              <View style={{...styles.clockCell,
-              backgroundColor:isDayTheme?"rgba(204, 204, 204, 0.2)":"rgba(51, 51, 51, 0.25)",
-              }}>
-               <Text style={{...styles.text,
-                color:isDayTheme?"#333":"#eee"
-              }}>{time.seconds}</Text>
-              </View>
+                <View style={styles.clockCell}>
+                  <Text style={{...styles.text,
+                    color:isDayTheme?"#333":"#eee"
+                  }}>{time.hours}</Text>
+                </View>
+                <Text style={{...styles.textProvider,
+                    color:isDayTheme?"#333":"#eee"
+                  }}>:</Text>
+                <View style={styles.clockCell}>
+                  <Text style={{...styles.text,
+                    color:isDayTheme?"#333":"#eee"
+                  }}>{time.minutes}</Text>
+                </View>
+                <Text style={{...styles.textProvider,
+                    color:isDayTheme?"#333":"#eee"
+                  }}>:</Text>
+                <View style={styles.clockCell}>
+                  <Text style={{...styles.text,
+                    color:isDayTheme?"#333":"#eee"
+                  }}>{time.seconds}</Text>
+                </View>
               </View>
           </View>
         </View>

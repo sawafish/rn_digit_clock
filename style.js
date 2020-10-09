@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         flexDirection:"row"
     },
     text: {
-        fontSize: setSpText(360),
+        fontSize: setSpText(350),
         marginTop:scaleSizeH(30)
     },
     battery: {
@@ -92,13 +92,17 @@ const styles = StyleSheet.create({
         fontSize: setSpText(35),
     },
     clockCell:{
-        width:"25%",
-        height:"70%",
-        margin:scaleSizeW(10),
+        width:"26%",
+        height:"80%",
+        margin:scaleSizeW(15),
         alignItems: "center",
         justifyContent: "center",
-        borderRadius:scaleSizeW(10),
-
+        borderRadius:scaleSizeW(20),
+    },
+    textProvider:{
+        fontSize: setSpText(100),
+        marginTop:scaleSizeH(40),
+        opacity:0.5
     }
 });
 module.exports = styles;
